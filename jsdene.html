@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Test Page</h3>
+<canvas id="myCanvas" width="1200" height="800"
+style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+<p id="demo"></p>
+<p id="demo2"></p>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var oldx = 0;
+var oldy = 0;
+
+ctx.fillStyle = "#FF0000";
+
+
+   function foo() { 
+
+
+
+        var x = Math.floor(Math.random() * 1201);
+        var y = Math.floor(Math.random() * 801);
+document.getElementById("demo").innerHTML = x;
+document.getElementById("demo2").innerHTML = y;
+
+//ctx.fillRect(x,y,2,2);
+
+ctx.moveTo(oldx,oldy);
+ctx.lineTo(x,y);
+ctx.stroke();
+
+oldx = x;
+oldy = y;
+
+
+setTimeout(foo, 500);
+}
+
+
+
+
+foo();
+</script>
+
+</body>
+</html> 
