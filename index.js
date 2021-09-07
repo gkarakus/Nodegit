@@ -1,5 +1,5 @@
 const http = require("http");
-const WebSocketServer = require("WebSocket")
+const WebSocketServer = require("Websocket").server
 
 const httpserver = http.createServer((req, res) =>{ 
 

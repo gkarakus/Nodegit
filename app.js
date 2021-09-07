@@ -1,5 +1,6 @@
 
 var http = require("http");
+const port = process.env.port || 8081;
 
 http.createServer(function (request, response) {
    // Send the HTTP header 
@@ -9,7 +10,7 @@ http.createServer(function (request, response) {
    
    // Send the response body as "Hello World"
    response.end('Hello World\n');
-}).listen(8081);
+}).listen(port);
 
 // Console will print the message
 console.log('Server running at http://127.0.0.1:8081/');
