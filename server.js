@@ -1,16 +1,11 @@
-var http = require("http");
-const port = process.env.port || 8081;
-
-http.createServer(function (request, response) {
-   // Send the HTTP header 
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'});
-   
-   // Send the response body as "Hello World"
-   response.end('Hello World\n');
-}).listen(port);
-
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8081/');
+var http = require('http');
+var fs = require('fs');
+http.createServer(function (req, res) {
+  //Open a file on the server and return its content:
+  fs.readFile('jsdene.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
+  });
+}).listen(8080);
 
