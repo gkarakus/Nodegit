@@ -10,7 +10,7 @@
 
     <script type="text/javascript">
 
-   socket = io.connect('http://localhost:1938', { transports: ['websocket'], rejectUnauthorized : false})
+   socket = io.connect('http://localhost:1938');
    //socket = io.connect('http://marketplace-env-1.eba-dwpqmnyx.us-east-2.elasticbeanstalk.com:8080') 
    socket.on('mouse', newdraw);
 
