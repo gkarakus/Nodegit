@@ -1,24 +1,16 @@
-const http = require('http');
-const express = require('express');
+var http = require("http");
+const port = process.env.port || 8081;
 
-const WebSocket = require('ws');
+http.createServer(function (request, response) {
+   // Send the HTTP header 
+   // HTTP Status: 200 : OK
+   // Content Type: text/plain
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   
+   // Send the response body as "Hello World"
+   response.end('Hello World\n');
+}).listen(port);
 
-const port = 6969;
-const server = http.createServer(express);
-const wss = new WebSocket.Server({ server })
-
-wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(data) {
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(data);
-      }
-    })
-  })
-})
-
-server.listen(port, function() {
-  console.log('Server is listening on ')
-})
-
+// Console will print the message
+console.log('Server running at http://127.0.0.1:8081/');
 
